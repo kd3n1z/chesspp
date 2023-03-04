@@ -1,0 +1,37 @@
+#hoursPlayed {
+    color: var(--globalColorThemeLow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#hoursPlayed>* {
+    min-width: 100px;
+}
+#chessPPLoader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#chessPPstatus {
+    text-align: right;
+    font-size: .5em;
+}
+.spin {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}

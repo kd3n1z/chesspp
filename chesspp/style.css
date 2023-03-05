@@ -16,6 +16,9 @@
     justify-content: flex-start;
     align-items: center;
 }
+#chessPPLoader>img {
+    position: absolute;
+}
 #chessPPstatus {
     text-align: right;
     font-size: .5em;

@@ -67,7 +67,7 @@ async function load() {
         });
     }
 
-    document.getElementById('chessPPLoader').innerHTML = '<img width="24px" height="24px" src="' + chrome.runtime.getURL("icon32.png") + '">';
+    document.getElementById('chessPPLoader').innerHTML = '<img width="32px" height="32px" src="' + chrome.runtime.getURL("imgs/icon32.png") + '">';
     document.getElementById('chessPPstatus').classList.add("hidden");
 }
 

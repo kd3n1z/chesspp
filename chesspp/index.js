@@ -55,19 +55,19 @@ async function load() {
                 if((game.black.username == username) == (game.black.result == "win")) {
                     wonGames++;
                 }
-            }
 
-            let s = (toDate(endDate, endTime) - toDate(startDate, startTime)) / 1000;
-
-            if(s < 24 * 60 * 60) {
-                time += s;
+                let s = (toDate(endDate, endTime) - toDate(startDate, startTime)) / 1000;
+    
+                if(s < 24 * 60 * 60) {
+                    time += s;
+                }
             }
 
             UpdateText();
         });
     }
 
-    document.getElementById('chessPPLoader').classList.add("hidden");
+    document.getElementById('chessPPLoader').innerHTML = '<img width="24px" height="24px" src="' + chrome.runtime.getURL("icon32.png") + '">';
     document.getElementById('chessPPstatus').classList.add("hidden");
 }
 

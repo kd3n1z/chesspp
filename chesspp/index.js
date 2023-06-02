@@ -38,31 +38,33 @@ async function load() {
             let endDate = '';
             let startDate = '';
             
-            game.pgn.split('\n').forEach(str => {
-                if(str.startsWith("[EndTime")) {
-                    endTime = str.split('"')[1];
-                }else if(str.startsWith("[StartTime")) {
-                    startTime = str.split('"')[1];
-                }else if(str.startsWith("[EndDate")) {
-                    endDate = str.split('"')[1];
-                }else if(str.startsWith("[UTCDate")) {
-                    startDate = str.split('"')[1];
-                }
-            }); 
-
-            if(game.rated) {
-                totalGames++;
-                if((game.black.username == username) == (game.black.result == "win")) {
-                    wonGames++;
-                }
-
-                let s = (toDate(endDate, endTime) - toDate(startDate, startTime)) / 1000;
+            if(game.pgn) {
+                game.pgn.split('\n').forEach(str => {
+                    if(str.startsWith("[EndTime")) {
+                        endTime = str.split('"')[1];
+                    }else if(str.startsWith("[StartTime")) {
+                        startTime = str.split('"')[1];
+                    }else if(str.startsWith("[EndDate")) {
+                        endDate = str.split('"')[1];
+                    }else if(str.startsWith("[UTCDate")) {
+                        startDate = str.split('"')[1];
+                    }
+                }); 
     
-                if(s < 24 * 60 * 60) {
-                    time += s;
+                if(game.rated) {
+                    totalGames++;
+                    if((game.black.username == username) == (game.black.result == "win")) {
+                        wonGames++;
+                    }
+    
+                    let s = (toDate(endDate, endTime) - toDate(startDate, startTime)) / 1000;
+        
+                    if(s < 24 * 60 * 60) {
+                        time += s;
+                    }
                 }
             }
-
+            
             UpdateText();
         });
     }
